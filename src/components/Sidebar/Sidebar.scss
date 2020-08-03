@@ -1,0 +1,41 @@
+.sidebar{
+  width: 320px;
+  height: 100%;
+  border-right: 1px solid #f7f7f7;
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    & div .anticon{
+      margin-right: 5px;
+    }
+  }
+  
+  &__dialogs{
+    height: calc(100% - 72px);
+    overflow-y: auto;
+    &::-webkit-scrollbar-track{
+      background-color: #fff;
+    }
+  
+    &::-webkit-scrollbar{
+      width: 4px;
+      background-color: #F5F5F5;
+    }
+  
+    &::-webkit-scrollbar-thumb{
+      border-radius: 2px;
+      background-color: #aaa;
+    }
+    .dialogs{
+      &__item{
+       padding: 10px 20px;
+       cursor: pointer;
+       &.active, &:hover{
+         background-color: #f3f7ff;
+       } 
+      }
+    }
+  }
+}

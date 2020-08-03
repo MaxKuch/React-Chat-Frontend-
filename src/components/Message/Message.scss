@@ -1,0 +1,186 @@
+@import "../../styles/vars.scss";
+.message{
+  $self: &;
+  max-width: 440px;
+  margin-bottom: 15px;
+  &__wrap{
+    display: flex;
+    align-items: flex-end;
+  }
+  &__attachments{
+    margin-top: 10px;
+    display: flex;
+    &-item{
+      cursor: pointer;
+      width: 45px;
+      height: 45px;
+      &:not(:last-child){
+        margin-right: 10px;
+      }
+    img{
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    }
+  }
+  
+  &__avatar{
+    margin-right: 13px;
+    margin-bottom: 21px;
+    img{
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+    }
+  }
+  &__content{
+    margin-bottom: 8px;
+  }
+  &__bubble{
+    background: $messageBg;
+    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.2);
+    border-radius: 12px 12px 12px 0;
+    padding: 15px;
+  }
+  &__text{
+    color: #fff;
+    line-height: 20px;
+  }
+  &__date{
+    font-size: 14px;
+    opacity: .4;
+  }
+  
+  &__readed-icon{
+    margin-bottom: 21px;
+    margin-right: 5px;
+  }
+  &__typing{
+    display: none;
+  }
+  &--is-typing{
+    #{$self}__avatar{
+      margin-bottom: 8px;
+    }
+    #{$self}__bubble{
+      background: $messageTypingBg;
+      box-shadow: none;
+    }
+    #{$self}__typing{
+      display: block;
+      span{
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background: $messageTypingCircle;
+        display: inline-block;
+        margin-right: 8px;
+        animation-name: typingAnimation;
+        animation-duration: .5s;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      &:nth-of-type(1){
+        animation-delay: 0s;
+      }
+      &:nth-of-type(2){
+        animation-delay: .2s;
+      }
+      &:nth-of-type(3){
+        animation-delay: .4s;
+      }
+      }
+    }
+  }
+  &--image{
+    #{$self}__attachments-item{
+      width: 300px;
+      height: 300px;
+    }
+  }
+  &--isme{
+    margin-left: auto;
+    #{$self}__wrap{
+      flex-direction: row-reverse;
+    }
+    #{$self}__attachments{
+      flex-direction: row-reverse;
+      margin-left: 0;
+      &-item:not(:last-child){
+        margin-right: 0;
+        margin-left: 10px;
+      }
+
+    }
+    #{$self}__avatar{
+      margin-right: 0;
+      margin-left: 13px;
+    }
+    #{$self}__bubble{
+      border-radius: 12px 12px 0 12px;
+      background: #fff;
+      border: 1px solid #ececec;
+      box-shadow: 0 4px 4px rgba(0, 0 , 0, 0.02);
+    }
+    #{$self}__text{
+      color: $textColor;
+    }
+    #{$self}__date{
+      float: right;
+    }
+  }
+  &--audio{
+    audio{
+      display: none;
+    }
+    #{$self}__bubble{
+      position: relative;
+      overflow: hidden;
+    }
+    #{$self}__audio{
+      width: 200px;
+      &-control{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+      &-btn{
+        button{
+          cursor: pointer;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: #0f3997;
+          img{
+            max-width: 15px;
+          }
+        }
+      }
+      &-duration{
+        color: #fff;
+        opacity: .7;
+        font-weight: semi-bold;
+      }
+      &-progress{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: #5188ff;
+        transition: width .5s linear;
+      }
+    }
+  }
+}
+
+@keyframes typingAnimation{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

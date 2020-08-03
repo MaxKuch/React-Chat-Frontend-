@@ -1,0 +1,39 @@
+.message-input{
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  padding: 0 10px;
+  
+  &__textarea{
+    flex-grow: 1;
+    input{
+      border: none;
+      &:focus{
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+  &__actions{
+    display: flex;
+    flex-shrink: 0;
+    .ant-btn {
+      line-height: 0!important;
+      & > .anticon {
+        line-height: 0!important;
+      }
+    }
+    .anticon{
+      cursor: pointer;
+      &:not(:last-child){
+        margin-right: 10px;
+      }
+      input::-webkit-file-upload-button{
+        cursor: pointer;
+      }
+    }
+  }
+}

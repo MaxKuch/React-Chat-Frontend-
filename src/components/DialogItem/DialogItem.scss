@@ -1,0 +1,68 @@
+@import "../../styles/vars.scss";
+.dialogs {
+  &__item{
+    $item: &;
+    display: flex;
+    align-items: center;
+    
+    &--online{
+      #{$item}-avatar{
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          background: $onlineColor;
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+          border: 3px solid #fff;
+        }
+      }
+    }
+    &-info{
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      overflow: hidden;
+      &-top{
+        margin-bottom: 7px;
+      }
+    }
+    &-avatar{
+      margin-right: 10px;
+    }
+  }
+  &__username{
+    font-weight: bold;
+  }
+  &__text{
+    word-break: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  &__count{
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    line-height: 18px;
+    background: #f46b6b;
+    color: #fff;
+    font-weight: 500;
+    font-size: 11px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+  }
+  &__date{
+    margin-left: 5px;
+  }
+  &__readed-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

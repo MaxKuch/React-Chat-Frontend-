@@ -1,0 +1,1 @@
+export {default as RegistrationForm} from './containers/RegistrationForm'
